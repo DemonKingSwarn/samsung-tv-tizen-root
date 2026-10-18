@@ -1,0 +1,88 @@
+===== ROOT EVIDENCE =====
+{
+  "model": null,
+  "host": "10.27.27.3",
+  "runtime": "6.0",
+  "authenticated": true,
+  "uid": 0,
+  "euid": 0,
+  "gid": 0,
+  "egid": 0,
+  "cap_eff": "0000003fffffffff",
+  "smack": "User",
+  "preflight_capabilities": "/usr/bin/dotnet cap_setgid,cap_sys_admin=ei\n/usr/sbin/sdbd-tarlauncher cap_setgid,cap_setuid=eip",
+  "commands": [
+    {
+      "command": "id",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "uid=0(owner) gid=0(root) groups=0(root),29(audio),44(video),201(display),1901(log),6509(app_logging),6525(usb_device),10001(priv_externalstorage),10002(priv_externalstorage_appdata),10013(priv_tee_client),10014(priv_peripheralio),10212(priv_platform),10501(priv_camera),10502(priv_mediastorage),10503(priv_recorder),10704(priv_internet),10705(priv_network_get),10711(priv_tethering_admin),10901(priv_email),10903(priv_message_read),11103(priv_mapservice),11201(priv_appdebugging) context=\"User\"\n",
+      "stderr": ""
+    },
+    {
+      "command": "uname -a",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "Linux Samsung 5.4.261 #1 SMP PREEMPT Sat Jun 27 16:55:17 UTC 2026 armv7l GNU/Linux\n",
+      "stderr": ""
+    },
+    {
+      "command": "grep -E '^(Uid|Gid|CapEff|CapPrm):' /proc/self/status",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "Uid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nCapPrm:\t0000003fffffffff\nCapEff:\t0000003fffffffff\n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /etc/passwd",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "owner:x:0:0:owner:/home/owner:/bin/sh\n",
+      "stderr": ""
+    },
+    {
+      "command": "ls -la /etc/shadow && head -c 200 /etc/shadow",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "---------- 1 owner root 2177 2026-08-06 16:41 /etc/shadow\nroot:*:20063:0:99999:7:::\nbin:*:20063:0:99999:7:::\ndaemon:*:20063:0:99999:7:::\nlp:*:20063:0:99999:7:::\nsync:*:20063:0:99999:7:::\nshutdown:*:20063:0:99999:7:::\nhalt:*:20063:0:99999:7:::\nmail:*:20063:0:",
+      "stderr": ""
+    },
+    {
+      "command": "sha256sum /usr/share/sdbd/public.pem && head -1 /usr/share/sdbd/public.pem",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "6efd02307f30edc804bddd5a2796e33a3839110cd1fca23f09d83df24889a761  /usr/share/sdbd/public.pem\n-----BEGIN PUBLIC KEY-----\n",
+      "stderr": ""
+    },
+    {
+      "command": "grep -i smack /proc/self/status",
+      "exit_code": 1,
+      "timed_out": false,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "ls -la /usr/sbin/uep* /usr/bin/uep* /etc/uep* 2>&1 | head",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "ls: cannot access /usr/sbin/uep*: No such file or directory\nls: cannot access /usr/bin/uep*: No such file or directory\nls: cannot access /etc/uep*: No such file or directory\n",
+      "stderr": ""
+    },
+    {
+      "command": "cat /proc/1/comm 2>&1; tr '\\0' ' ' < /proc/1/cmdline 2>&1; echo",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "systemd\n/usr/lib/systemd/systemd\u0000\n",
+      "stderr": ""
+    },
+    {
+      "command": "P=/opt/usr/.root-proof-$$; echo proof > $P && ls -la $P && rm -f $P && echo ROOT_WRITE_OK",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "-rw-rw-rw- 1 owner root 6 2026-10-18 20:44 /opt/usr/.root-proof-24824\nROOT_WRITE_OK\n",
+      "stderr": ""
+    }
+  ],
+  "system_files_unchanged": true,
+  "staging_cleaned": true
+}

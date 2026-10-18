@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------------------
+# Not shared in the repository
+# ---------------------------------------------------------------------------
+
+# Vendored Samsung `sdb` tool (proprietary binary; do not redistribute).
+# Fetch your own copy via Tizen Studio or the standalone package — see README §8.
+sdb/
+
+# Compiled paper output. Build it locally with `typst compile paper/main.typ`.
+paper/main.pdf
+*.pdf
+
+# ---------------------------------------------------------------------------
+# Local scratch, OS and editor junk
+# ---------------------------------------------------------------------------
+notes/
+*.tmp
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/

@@ -1,0 +1,162 @@
+Unprivileged reconnaissance on QA55QEF1AULXL (Tizen 9.0.0) as uid=901(sdk)
+Collected via the SDB injection + curl exfil channel.
+
+### identity
+uid=901(sdk) gid=901(sdk) groups=29(audio),44(video),201(display),901(sdk),1051(system_share),1901(log),6525(usb_device),10001(priv_externalstorage),10013(priv_tee_client),10014(priv_peripheralio),10212(priv_platform),10501(priv_camera),10502(priv_mediastorage),10503(priv_recorder),10704(priv_internet),10705(priv_network_get),10711(priv_tethering_admin),10901(priv_email),10903(priv_message_read),11103(priv_mapservice),11201(priv_appdebugging) context="System"
+smack_current: System
+### uname
+Linux Samsung 5.4.261 #1 SMP PREEMPT Sat Jun 27 16:55:17 UTC 2026 armv7l GNU/Linux
+### /proc/version
+Linux version 5.4.261 (abuild@A1812DPG) (gcc version 9.2.0 (Tizen GCC 9.2.0 20190812 2.19)) #1 SMP PREEMPT Sat Jun 27 16:55:17 UTC 2026
+### cpuinfo
+model name	: ARMv7 Processor rev 0 (v7l)
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU part	: 0xd08
+CPU implementer	: 0x41
+processors: 4
+### tizen / os release
+NAME=Tizen
+VERSION="9.0.0 (Tizen9/TV)"
+ID=tizen
+VERSION_ID=9.0.0
+PRETTY_NAME="Tizen 9.0.0 (Tizen9/TV)"
+ANSI_COLOR="0;36"
+CPE_NAME="cpe:/o:tizen:tizen:9.0.0"
+BUILD_ID=T-RSLFUABC-0090-REL-202608061940
+Tizen9/TV 9.0.0 (arm)
+VERSION = 9.0.0
+CODENAME = TNINE
+BUILD_ID=T-RSLFUABC-0090-REL-202608061940
+cat: /etc/version: No such file or directory
+/etc/fta_version.txt
+### file capabilities (usr)
+/usr/bin/HttpAccel cap_net_admin,cap_net_raw=eip
+/usr/bin/aifw-data-managerd cap_dac_override=ei
+/usr/bin/alarm-server cap_sys_time=ei
+/usr/bin/amd cap_dac_override,cap_fowner,cap_kill,cap_sys_ptrace,cap_sys_admin=ei
+/usr/bin/aot-manager-server cap_chown,cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_kill,cap_setgid,cap_setuid,cap_mac_override=ei
+/usr/bin/app-defined-loader cap_setgid,cap_setuid,cap_setpcap,cap_sys_chroot,cap_sys_ptrace,cap_sys_admin,cap_sys_nice,cap_mac_override,cap_mac_admin=ei
+/usr/bin/buxton2ctl cap_dac_override=ei
+/usr/bin/camera_conf_mgr_abm_tv cap_chown,cap_dac_override,cap_mac_admin=ei
+/usr/bin/cat cap_sys_ptrace=ei
+/usr/bin/com.samsung.tv.wifi-presence cap_net_admin,cap_net_raw=eip
+/usr/bin/common-daemon-basic-monitor cap_dac_override=ei
+/usr/bin/data-provider-master cap_dac_override=ei
+/usr/bin/devzone-launcher cap_setgid,cap_setuid,cap_setpcap,cap_sys_chroot,cap_sys_ptrace,cap_sys_admin,cap_mac_override,cap_mac_admin=eip
+/usr/bin/df cap_dac_read_search=ei
+/usr/bin/dlogutil cap_syslog=ei
+/usr/bin/dnsmasq cap_net_bind_service,cap_net_broadcast,cap_net_admin,cap_net_raw=ei
+/usr/bin/dotnet cap_setgid,cap_sys_admin=ei
+/usr/bin/dotnet-hydra-loader cap_setgid,cap_sys_ptrace,cap_sys_admin,cap_sys_nice,cap_mac_override,cap_mac_admin=ei
+/usr/bin/dotnet-launcher cap_setgid,cap_setuid,cap_setpcap,cap_sys_chroot,cap_sys_ptrace,cap_sys_admin,cap_sys_nice,cap_mac_override,cap_mac_admin=ei
+/usr/bin/dotnet-launcher-inhouse cap_setgid,cap_setuid,cap_setpcap,cap_sys_chroot,cap_sys_ptrace,cap_sys_admin,cap_sys_nice,cap_mac_override,cap_mac_admin=ei
+/usr/bin/dotnet-loader cap_setgid,cap_sys_ptrace,cap_sys_admin,cap_sys_nice,cap_mac_override,cap_mac_admin=ei
+/usr/bin/download-provider cap_chown,cap_dac_override=ei
+/usr/bin/du cap_dac_read_search=ei
+/usr/bin/efl_webprocess cap_setgid,cap_mac_override,cap_mac_admin=ei
+/usr/bin/focus_server cap_fowner,cap_lease=ei
+/usr/bin/fw-update-service cap_dac_override,cap_mac_admin=ei
+/usr/bin/inm-manager cap_net_admin,cap_net_raw=ei
+/usr/bin/kmod cap_sys_module=ei
+/usr/bin/launchpad-loader cap_setgid,cap_sys_admin,cap_sys_nice,cap_mac_admin=ei
+/usr/bin/launchpad-process-pool cap_dac_override,cap_setgid,cap_setuid,cap_setpcap,cap_sys_chroot,cap_sys_ptrace,cap_sys_admin,cap_sys_nice,cap_mac_override,cap_mac_admin=eip
+/usr/bin/launchpad-starter cap_chown,cap_fowner,cap_setgid,cap_setuid,cap_setpcap,cap_sys_chroot,cap_sys_ptrace,cap_sys_admin,cap_sys_nice,cap_mac_override,cap_mac_admin=eip
+/usr/bin/media-server cap_dac_read_search=ei
+/usr/bin/mobileap-agent cap_net_bind_service,cap_net_admin,cap_net_raw,cap_sys_rawio=ei
+/usr/bin/model_downloader cap_chown,cap_dac_override,cap_mac_admin=ei
+/usr/bin/muse-server cap_dac_override=ei
+/usr/bin/nan-manager cap_net_admin,cap_net_raw=ei
+/usr/bin/p2p-legacy-manager cap_net_bind_service,cap_net_broadcast,cap_net_admin,cap_net_raw=ei
+/usr/bin/pkg_cleardata cap_dac_override,cap_mac_override=ei
+/usr/bin/pkg_getsize cap_dac_read_search=ei
+/usr/bin/pkg_recovery cap_chown,cap_dac_override,cap_fowner=ei
+### key caps
+/usr/bin/dotnet cap_setgid,cap_sys_admin=ei
+/usr/sbin/sdbd-tarlauncher cap_setgid,cap_setuid=eip
+### dotnet runtimes
+total 0
+drwxr-xr-x 1 root root   8 2026-08-06 16:11 .
+drwxr-xr-x 1 root root   1 2026-08-06 16:11 ..
+lrwxrwxrwx 1 root root   5 2026-01-09 22:59 2.0.0 -> 6.0.9
+lrwxrwxrwx 1 root root   5 2026-01-09 22:59 2.1.0 -> 6.0.9
+lrwxrwxrwx 1 root root   5 2026-01-09 22:59 2.1.1 -> 6.0.9
+lrwxrwxrwx 1 root root   5 2026-01-09 22:59 2.1.4 -> 6.0.9
+lrwxrwxrwx 1 root root   5 2026-01-09 22:59 3.0.0 -> 6.0.9
+lrwxrwxrwx 1 root root   5 2026-01-09 22:59 3.1.3 -> 6.0.9
+lrwxrwxrwx 1 root root   5 2026-01-09 22:59 6.0.0 -> 6.0.9
+drwxr-xr-x 1 root root 349 2026-08-06 16:51 6.0.9
+### /dev world-writable
+crw-rw-rw-  1 root root         10, 248 2026-10-18 19:16 bptime
+crw-rw-rw-  1 root root        180, 194 2026-10-18 19:16 btusb0
+crw-rw-rw-  1 root root        244,   0 2026-10-18 19:16 eeprom
+crw-rw-rw-  1 root root          1,   7 2026-10-18 19:16 full
+crw-rw-rw-  1 root root         10, 229 2026-10-18 19:16 fuse
+crw-rw-rw-  1 root root         89,   0 2026-10-18 19:16 i2c-0
+crw-rw-rw-  1 root root         89,   1 2026-10-18 19:16 i2c-1
+crw-rw-rw-  1 root root         89,  10 2026-10-18 19:16 i2c-10
+crw-rw-rw-  1 root root         89,   2 2026-10-18 19:16 i2c-2
+crw-rw-rw-  1 root root         89,   3 2026-10-18 19:16 i2c-3
+crw-rw-rw-  1 root root         89,   4 2026-10-18 19:16 i2c-4
+crw-rw-rw-  1 root root         89,   5 2026-10-18 19:16 i2c-5
+crw-rw-rw-  1 root root         89,   6 2026-10-18 19:16 i2c-6
+crw-rw-rw-  1 root root         89,   7 2026-10-18 19:16 i2c-7
+crw-rw-rw-  1 root root         89,   8 2026-10-18 19:16 i2c-8
+crw-rw-rw-  1 root root         89,   9 2026-10-18 19:16 i2c-9
+crw-rw-rw-  1 root root        245,   0 2026-10-18 19:16 kfactory
+crw-rw----  1 root log           1,  11 2026-10-18 19:16 kmsg
+crw-rw-rw-  1 root root        252,   0 2026-10-18 19:16 lirc0
+crw-rw-rw-  1 root root        251,   0 2026-10-18 19:16 lirc1
+crw-rw-rw-  1 root root        252,   2 2026-10-18 19:16 lirc2
+crw-rw-rw-  1 root root        252,   3 2026-10-18 19:16 lirc3
+crw-rw-rw-  1 root app_logging  10,  58 2026-10-18 19:16 log_events
+crw-rw-rw-  1 root root         10,  56 2026-10-18 19:16 logger_policy
+crw-rw-rw-  1 root root         10,  55 2026-10-18 19:16 logger_stats
+crw-rw-rw-  1 root app_logging  10,  61 2026-10-18 19:16 log_main
+crw-rw-rw-  1 root app_logging  10,  57 2026-10-18 19:16 log_public
+crw-rw-rw-  1 root app_logging  10,  60 2026-10-18 19:16 log_radio
+crw-rw-rw-  1 root app_logging  10,  59 2026-10-18 19:16 log_system
+brw-rw----  1 root disk          7,   0 2026-10-18 20:47 loop0
+### /dev/kmsg
+crw-rw---- 1 root log      1,  11 2026-10-18 19:16 /dev/kmsg
+crw-rw-rw- 1 root display 10,  45 2026-10-18 19:16 /dev/mali0
+crw-rw-rw- 1 root root    10, 193 2026-10-18 19:16 /dev/sdp_mem
+crw-rw-rw- 1 root video   10,  51 2026-10-18 19:16 /dev/tzmem
+### mounts (head)
+/dev/root / vdfs ro,posixacl,relatime 0 0
+devtmpfs /dev devtmpfs rw,posixacl,relatime,size=577100k,nr_inodes=144275,mode=755 0 0
+none /proc proc rw,relatime 0 0
+tmpfs /tmp tmpfs rw,posixacl,relatime 0 0
+sysfs /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+debugfs /sys/kernel/debug debugfs rw,relatime 0 0
+tracefs /sys/kernel/debug/tracing tracefs rw,relatime 0 0
+/dev/subroot2 /prd vdfs ro,posixacl,relatime 0 0
+/dev/mmcblk0p23 /factory_peq squashfs ro,relatime 0 0
+/dev/mmcblk0p20 /mnt/systemrw vdfs rw,posixacl,noatime,dncs 0 0
+/dev/mmcblk0p21 /opt vdfs rw,posixacl,noatime,dncs 0 0
+tmpfs /run tmpfs rw,posixacl,nosuid,nodev,mode=777 0 0
+tmpfs /run/user/5001 tmpfs rw,posixacl,nosuid,nodev,relatime,mode=700,uid=5001,gid=100 0 0
+tmpfs /dev/shm tmpfs rw,posixacl,nosuid,nodev 0 0
+smackfs /sys/fs/smackfs smackfs rw,nosuid,nodev,noexec,relatime 0 0
+/dev/mmcblk0p17 /mnt/drm vdfs rw,posixacl,relatime,dncs 0 0
+securityfs /sys/kernel/security securityfs rw,nosuid,nodev,noexec,relatime 0 0
+devpts /dev/pts devpts rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000 0 0
+tmpfs /sys/fs/cgroup tmpfs ro,posixacl,nosuid,nodev,noexec,mode=755 0 0
+cgroup2 /sys/fs/cgroup/unified cgroup2 rw,nosuid,nodev,noexec,relatime,nsdelegate 0 0
+cgroup /sys/fs/cgroup/systemd cgroup rw,nosuid,nodev,noexec,relatime,xattr,name=systemd 0 0
+kdbusfs /sys/fs/kdbus kdbusfs rw,nosuid,nodev,noexec,relatime 0 0
+cgroup /sys/fs/cgroup/cpu cgroup rw,nosuid,nodev,noexec,relatime,cpu 0 0
+cgroup /sys/fs/cgroup/freezer cgroup rw,nosuid,nodev,noexec,relatime,freezer 0 0
+cgroup /sys/fs/cgroup/blkio cgroup rw,nosuid,nodev,noexec,relatime,blkio 0 0
+### unshare test
+NS_OK
+### sdk_tools
+total 8
+drwxrwxrwx 1 owner users    3 2026-10-18 20:47 .
+drwxrwxrwx 1 owner users    1 2026-10-18 20:01 ..
+-rwxr-xrwx 1 owner users  487 2026-10-18 20:45 cleanup.sh
+-rwxr-xrwx 1 owner users 1195 2026-10-18 20:45 final-recon.sh
+drwxrwxrwx 1 sdk   sdk      0 2026-10-18 20:44 on-demand
+### dpkg/pkg? packages
+ls: cannot access /usr/share/tizen: No such file or directory
+### END

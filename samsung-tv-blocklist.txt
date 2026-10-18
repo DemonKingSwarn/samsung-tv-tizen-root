@@ -1,0 +1,89 @@
+# Samsung Tizen TV — ad / tracking / re-download blocklist
+# For: QA55QEF1AULXL (Tizen 9.0, 2025), 10.27.27.3, region: IN
+#
+# Format: hosts file (0.0.0.0 <domain>). Works with:
+#   - Pi-hole / AdGuard Home (as a local list)
+#   - dnsmasq (add as an extra conf)
+#   - NextDNS  (Add to "Denylist")
+#   - AdGuard DNS / Control D custom rules
+#
+# WHAT THIS BLOCKS
+#   * Samsung Ads (targeted ad serving + measurement)
+#   * ACR (Automatic Content Recognition = "Viewing Information Services")
+#   * Samsung TV Plus re-download endpoints  (this is what makes TV Plus
+#     come back after you delete it)
+#   * Smart Hub home-screen promo/telemetry tiles
+#
+# DO NOT ADD (would break the app store / updates / login):
+#   samsungapps.com, osb.samsungqbe.com is OK to block but
+#   do NOT block account.samsung.com, *.samsung.com broadly,
+#   and never blanket-block samsungcloudsolution.com (some is needed).
+#   Rule of thumb: block the specific hosts below, nothing broader.
+
+# --- Samsung Ads ---
+0.0.0.0 samsungads.com
+0.0.0.0 ads.samsungads.com
+0.0.0.0 ad.samsungads.com
+0.0.0.0 config.samsungads.com
+0.0.0.0 events.samsungads.com
+0.0.0.0 dsp.samsungads.com
+0.0.0.0 rtb-config.samsungads.com
+0.0.0.0 tvp-ads-log.samsungads.com
+0.0.0.0 tvp-interactive-ad.samsungads.com
+0.0.0.0 samsungadhub.com
+0.0.0.0 ad.samsungadhub.com
+0.0.0.0 rd.samsungadhub.com
+0.0.0.0 samsungtvads.com
+0.0.0.0 www.samsungtvads.com
+0.0.0.0 ad-server.samsungads.com
+0.0.0.0 samsungtv-d.openx.net
+
+# --- ACR / viewing-information telemetry ---
+0.0.0.0 samsungacr.com
+0.0.0.0 log-1.samsungacr.com
+0.0.0.0 log-2.samsungacr.com
+0.0.0.0 log-3.samsungacr.com
+0.0.0.0 log-config.samsungacr.com
+0.0.0.0 log-ingestion.samsungacr.com
+0.0.0.0 log-ingestion-eu.samsungacr.com
+0.0.0.0 log-ingestion-ap2.samsungacr.com
+0.0.0.0 s3-config.samsungacr.com
+0.0.0.0 targeted-config-test.samsungacr.com
+0.0.0.0 acr0.samsungcloudsolution.com
+0.0.0.0 acr-in-prd.samsungcloud.tv
+0.0.0.0 acr-eu-prd.samsungcloud.tv
+
+# --- Samsung TV Plus re-download (apps come back if not blocked) ---
+0.0.0.0 osb-v2.samsungqbe.com
+0.0.0.0 osb-apps.samsungqbe.com
+0.0.0.0 osb-apps-v2.samsungqbe.com
+0.0.0.0 osb-auth-eusvc-v2.samsungqbe.com
+0.0.0.0 osb-krsvc.samsungqbe.com
+0.0.0.0 gpm.samsungqbe.com
+0.0.0.0 scs.samsungqbe.com
+
+# --- Smart Hub promo / tile telemetry ---
+0.0.0.0 img-resize-cdn-prod.samsungnyc.com
+0.0.0.0 api-hub.samsungyosemite.com
+0.0.0.0 eu-api.samsungyosemite.com
+0.0.0.0 us-api.samsungyosemite.com
+0.0.0.0 uimetadata.samsungiotcloud.com
+0.0.0.0 notice.samsungcloudsolution.com
+0.0.0.0 noticecdn.samsungcloudsolution.com
+0.0.0.0 noticefile.samsungcloudsolution.com
+0.0.0.0 gamespromotion.samsungcloudsolution.com
+0.0.0.0 oempprd.samsungcloudsolution.com
+0.0.0.0 vdterms.samsungcloudsolution.com
+0.0.0.0 event-tracking.samsung.com
+0.0.0.0 samsung.demdex.net
+0.0.0.0 samsungindiaelectronics.demdex.net
+0.0.0.0 smetrics.samsung.com
+0.0.0.0 samsung-com.112.2o7.net
+0.0.0.0 analytics.bigdata.samsung.com
+
+# --- Misc 3rd-party ad SDKs seen on Tizen TVs ---
+0.0.0.0 tvx.adgrx.com
+0.0.0.0 static.doubleclick.net
+0.0.0.0 ad.sxp.smartclip.net
+0.0.0.0 events.samsungads.net
+0.0.0.0 ads.samsungads.net

