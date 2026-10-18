@@ -189,10 +189,9 @@ Home → Apps → type 1 2 3 4 5 → Developer mode: OFF → reboot
 - `README.md` — the repository overview and paper
 - `docs/DEBLOAT.md` — this guide
 - `samsung-tv-blocklist.txt` — hosts-format blocklist
-- `applist-before.txt` (514), `applist-after.txt` (511, SDB-only),
-  `applist-after-root.txt` (**427**, after the root debloat)
 - `classify-applist.py` — the classifier used (from the
-  [ardazeytin/samsung-tizen-tv-debloat](https://github.com/ardazeytin/samsung-tizen-tv-debloat) project)
+  [ardazeytin/samsung-tizen-tv-debloat](https://github.com/ardazeytin/samsung-tizen-tv-debloat) project).
+  The device inventories it operates on are not committed.
 - `ROOTING-RESEARCH.md` — write-up of the volatile root path on this exact TV (see §9)
 - `paper/` — the same work as a Typst research paper (`main.typ`, `refs.bib`; PDF built locally)
 - `evidence/` — raw root evidence, unprivileged recon, SDB wire capture, injection string

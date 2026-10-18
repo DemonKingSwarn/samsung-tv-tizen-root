@@ -52,7 +52,7 @@ These runs do not claim a general boot persistence method.
   year         = {2026},
   month        = oct,
   howpublished = {GitHub},
-  % TODO: add the repository URL here
+  url          = {https://github.com/demonkingswarn/samsung-tv-tizen-root},
   note         = {License: CC BY 4.0}
 }
 ```
@@ -79,8 +79,7 @@ The license does not cover the code, the tooling, the inventories, or the eviden
 - `evidence/` contains the raw root proof, the unprivileged recon, the SDB wire capture, and the driver.
 - `ROOTING-RESEARCH.md` is the long-form Markdown write-up of the same work.
 - `samsung-tv-blocklist.txt` is a hosts-format blocklist.
-- `applist-before.txt`, `applist-after.txt`, and `applist-after-root.txt` are the package inventories.
-- `classify-applist.py` is the inventory classifier.
+- `classify-applist.py` is the classifier for the device `applist` output.
 - `sdb/` is the vendored Samsung `sdb` tool.
 
 `sdb/` is a proprietary Samsung binary.
